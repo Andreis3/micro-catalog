@@ -1,6 +1,6 @@
-import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
+import {lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
 import {juggler} from '@loopback/repository';
-import config from './esv7.datasource.config';
+import dbConfig from './esv7.datasource.config';
 
 // Observe application's life cycle to disconnect the datasource when
 // application is stopped. This allows the application to be shut down
@@ -10,12 +10,8 @@ import config from './esv7.datasource.config';
 export class Esv7DataSource extends juggler.DataSource
   implements LifeCycleObserver {
   static dataSourceName = 'esv7';
-  static readonly defaultConfig = config;
 
-  constructor(
-    @inject('datasources.config.esv7', {optional: true})
-    dsConfig: object = config,
-  ) {
-    super(dsConfig);
+  constructor(config = dbConfig) {
+    super(config);
   }
 }
