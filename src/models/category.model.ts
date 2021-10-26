@@ -1,6 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model({name: 'category'})
+@model({ name: 'category' })
 export class Category extends Entity {
   @property({
     type: 'string',
@@ -17,10 +17,23 @@ export class Category extends Entity {
   name: string;
 
   @property({
-    type: 'string',
-    required: true,
+    type: 'boolean',
+    required: false,
+    default: true,
   })
-  description: string;
+  is_active?: boolean;
+
+  @property({
+    type: 'date',
+    required: true
+  })
+  created_at: Date;
+
+  @property({
+    type: 'date',
+    required: true
+  })
+  updated_at: Date;
 
 
   constructor(data?: Partial<Category>) {

@@ -26,6 +26,15 @@ export default {
           "ignore_above": 256
         }
       }
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "updated_at": {
+      "type": "date"
     }
   }
 }

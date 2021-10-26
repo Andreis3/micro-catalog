@@ -55,11 +55,13 @@ export class PingController {
 
   @get('/categories')
   async index() {
-    // await this.categoryRepo.create({
-    //   id: '1',
-    //   name: 'test name category',
-    //   description: 'test description category',
-    // });
+    await this.categoryRepo.create({
+      id: '1',
+      name: 'test name category',
+      is_active: true,
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
     return this.categoryRepo.find();
   }
 }
